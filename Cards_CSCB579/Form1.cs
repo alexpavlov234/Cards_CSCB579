@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Globalization;
+using System.Drawing.Drawing2D;
 
 namespace Cards_CSCB579;
 
@@ -7,8 +8,8 @@ public partial class Form1 : Form
 {
     private string _greetingText = "Честит празник";
 
-    private Font _greetingTextFont = new Font("Arial", 24, FontStyle.Bold);
-    private Color _greetingTextColor = Color.Goldenrod;
+    private Font _greetingTextFont = new Font("Comic Sans MS", 24, FontStyle.Bold);
+    private Color _greetingTextColor = Color.DarkRed;
 
     public Form1()
     {
@@ -17,9 +18,40 @@ public partial class Form1 : Form
 
     private void canvasBox_Paint(object sender, PaintEventArgs e)
     {
-        Brush brush = new SolidBrush(this._greetingTextColor);
-        SizeF textBoxMeasurement = e.Graphics.MeasureString(this._greetingText, this._greetingTextFont);
-        e.Graphics.DrawString(this._greetingText, this._greetingTextFont, brush, ((this.canvasBox.Width - textBoxMeasurement.Width) / 2.0f), 100);
+        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+        Rectangle rect = this.canvasBox.ClientRectangle;
+
+        using (LinearGradientBrush backgrountBrush = new LinearGradientBrush(rect, Color.PeachPuff, Color.Yellow, 45F))
+        {
+            e.Graphics.FillRectangle(backgrountBrush, rect);
+        }
+
+        using (Brush ellipseBrush1 = new SolidBrush(Color.FromArgb(100, Color.DeepPink)))
+        using (Brush ellipseBrush2 = new SolidBrush(Color.FromArgb(100, Color.Orange)))
+        {
+            e.Graphics.FillEllipse(ellipseBrush1, -50, -50, 150, 150);
+            e.Graphics.FillEllipse(ellipseBrush2, rect.Width - 100, rect.Height - 100, 150, 150);
+        }
+
+        using (Pen borderPen = new Pen(Color.Gold, 10))
+        {
+            e.Graphics.DrawRectangle(borderPen, 5, 5, rect.Width - 10, rect.Height - 10);
+        }
+
+        SizeF textBoxSizeMeasurement = e.Graphics.MeasureString(this._greetingText, this._greetingTextFont);
+        float xOfText = (this.canvasBox.Width - textBoxSizeMeasurement.Width) / 2.0f;
+        float yOfText = (this.canvasBox.Height - textBoxSizeMeasurement.Height) / 2.0f;
+
+        using (Brush shadowBrush = new SolidBrush(Color.FromArgb(80, Color.Black)))
+        {
+            e.Graphics.DrawString(this._greetingText, this._greetingTextFont, shadowBrush, xOfText + 4, yOfText + 4);
+        }
+
+        using (Brush mainTextBrush = new SolidBrush(this._greetingTextColor))
+        {
+            e.Graphics.DrawString(this._greetingText, this._greetingTextFont, mainTextBrush, xOfText, yOfText);
+        }
     }
 
     private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,7 +91,7 @@ public partial class Form1 : Form
 
     private void englishLanguageToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        ChangeLanguage("en"); // Или пробвай "en-US", ако само "en" не хване
+        ChangeLanguage("en");
     }
     private void aboutStudentToolStripMenuItem_Click(object sender, EventArgs e)
     {
