@@ -46,8 +46,13 @@ partial class Form1
         timer1 = new System.Windows.Forms.Timer(components);
         saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
         canvasBox = new System.Windows.Forms.PictureBox();
+        panel1 = new System.Windows.Forms.Panel();
+        greetingTextBoxLabel = new System.Windows.Forms.Label();
+        greetingTextBox = new System.Windows.Forms.TextBox();
+        applyTextButton = new System.Windows.Forms.Button();
         menuStrip1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)canvasBox).BeginInit();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
         // menuStrip1
@@ -165,12 +170,51 @@ partial class Form1
         // canvasBox
         // 
         canvasBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        canvasBox.Location = new System.Drawing.Point(0, 24);
+        canvasBox.Location = new System.Drawing.Point(0, 84);
         canvasBox.Name = "canvasBox";
-        canvasBox.Size = new System.Drawing.Size(800, 426);
+        canvasBox.Size = new System.Drawing.Size(800, 366);
         canvasBox.TabIndex = 1;
         canvasBox.TabStop = false;
         canvasBox.Paint += canvasBox_Paint;
+        // 
+        // panel1
+        // 
+        panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+        panel1.Controls.Add(applyTextButton);
+        panel1.Controls.Add(greetingTextBox);
+        panel1.Controls.Add(greetingTextBoxLabel);
+        panel1.Dock = System.Windows.Forms.DockStyle.Top;
+        panel1.Location = new System.Drawing.Point(0, 24);
+        panel1.Name = "panel1";
+        panel1.Size = new System.Drawing.Size(800, 60);
+        panel1.TabIndex = 2;
+        // 
+        // greetingTextBoxLabel
+        // 
+        greetingTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+        greetingTextBoxLabel.Location = new System.Drawing.Point(12, 9);
+        greetingTextBoxLabel.Name = "greetingTextBoxLabel";
+        greetingTextBoxLabel.Size = new System.Drawing.Size(77, 19);
+        greetingTextBoxLabel.TabIndex = 2;
+        greetingTextBoxLabel.Text = "Пожелание";
+        // 
+        // greetingTextBox
+        // 
+        greetingTextBox.Location = new System.Drawing.Point(12, 31);
+        greetingTextBox.Name = "greetingTextBox";
+        greetingTextBox.Size = new System.Drawing.Size(650, 23);
+        greetingTextBox.TabIndex = 0;
+        // 
+        // applyTextButton
+        // 
+        applyTextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right));
+        applyTextButton.Location = new System.Drawing.Point(701, 20);
+        applyTextButton.Name = "applyTextButton";
+        applyTextButton.Size = new System.Drawing.Size(75, 23);
+        applyTextButton.TabIndex = 1;
+        applyTextButton.Text = "Приложи";
+        applyTextButton.UseVisualStyleBackColor = true;
+        applyTextButton.Click += applyTextButton_Click;
         // 
         // Form1
         // 
@@ -178,15 +222,22 @@ partial class Form1
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
         Controls.Add(canvasBox);
+        Controls.Add(panel1);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
         Text = "Програма за създаване на картички";
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)canvasBox).EndInit();
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
+    private System.Windows.Forms.Label greetingTextBoxLabel;
+    private System.Windows.Forms.TextBox greetingTextBox;
+    private System.Windows.Forms.Button applyTextButton;
+    private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.PictureBox canvasBox;
     private System.Windows.Forms.ColorDialog colorDialog1;
     private System.Windows.Forms.FontDialog fontDialog1;
