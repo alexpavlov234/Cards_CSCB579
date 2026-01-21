@@ -29,27 +29,28 @@ partial class Form1
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        menuStrip1 = new System.Windows.Forms.MenuStrip();
-        fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        bulgarianLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        englishLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        aboutStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        colorDialog1 = new System.Windows.Forms.ColorDialog();
-        fontDialog1 = new System.Windows.Forms.FontDialog();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+        menuStrip1 = new MenuStrip();
+        fileToolStripMenuItem = new ToolStripMenuItem();
+        saveAsToolStripMenuItem = new ToolStripMenuItem();
+        exitToolStripMenuItem = new ToolStripMenuItem();
+        settingsToolStripMenuItem = new ToolStripMenuItem();
+        colorToolStripMenuItem = new ToolStripMenuItem();
+        fontToolStripMenuItem = new ToolStripMenuItem();
+        languageToolStripMenuItem = new ToolStripMenuItem();
+        bulgarianLanguageToolStripMenuItem = new ToolStripMenuItem();
+        englishLanguageToolStripMenuItem = new ToolStripMenuItem();
+        helpToolStripMenuItem = new ToolStripMenuItem();
+        aboutStudentToolStripMenuItem = new ToolStripMenuItem();
+        colorDialog1 = new ColorDialog();
+        fontDialog1 = new FontDialog();
         timer1 = new System.Windows.Forms.Timer(components);
-        saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-        canvasBox = new System.Windows.Forms.PictureBox();
-        panel1 = new System.Windows.Forms.Panel();
-        greetingTextBoxLabel = new System.Windows.Forms.Label();
-        greetingTextBox = new System.Windows.Forms.TextBox();
-        applyTextButton = new System.Windows.Forms.Button();
+        saveFileDialog1 = new SaveFileDialog();
+        canvasBox = new PictureBox();
+        panel1 = new Panel();
+        applyTextButton = new Button();
+        greetingTextBox = new TextBox();
+        greetingTextBoxLabel = new Label();
         menuStrip1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)canvasBox).BeginInit();
         panel1.SuspendLayout();
@@ -57,104 +58,75 @@ partial class Form1
         // 
         // menuStrip1
         // 
-        menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
-        {
-            fileToolStripMenuItem, settingsToolStripMenuItem, languageToolStripMenuItem, helpToolStripMenuItem
-        });
-        menuStrip1.Location = new System.Drawing.Point(0, 0);
+        resources.ApplyResources(menuStrip1, "menuStrip1");
+        menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, settingsToolStripMenuItem, languageToolStripMenuItem, helpToolStripMenuItem });
         menuStrip1.Name = "menuStrip1";
-        menuStrip1.Size = new System.Drawing.Size(800, 24);
-        menuStrip1.TabIndex = 0;
-        menuStrip1.Text = "menuStrip1";
         // 
         // fileToolStripMenuItem
         // 
-        fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
-        {
-            saveAsToolStripMenuItem, exitToolStripMenuItem
-        });
+        resources.ApplyResources(fileToolStripMenuItem, "fileToolStripMenuItem");
+        fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveAsToolStripMenuItem, exitToolStripMenuItem });
         fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-        fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-        fileToolStripMenuItem.Text = "Файл";
         fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
         // 
         // saveAsToolStripMenuItem
         // 
+        resources.ApplyResources(saveAsToolStripMenuItem, "saveAsToolStripMenuItem");
         saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-        saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        saveAsToolStripMenuItem.Text = "Запиши като";
         saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
         // 
         // exitToolStripMenuItem
         // 
+        resources.ApplyResources(exitToolStripMenuItem, "exitToolStripMenuItem");
         exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-        exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        exitToolStripMenuItem.Text = "Изход";
         exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
         // 
         // settingsToolStripMenuItem
         // 
-        settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
-        {
-            colorToolStripMenuItem, fontToolStripMenuItem
-        });
+        resources.ApplyResources(settingsToolStripMenuItem, "settingsToolStripMenuItem");
+        settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { colorToolStripMenuItem, fontToolStripMenuItem });
         settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-        settingsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-        settingsToolStripMenuItem.Text = "Настройки";
         // 
         // colorToolStripMenuItem
         // 
+        resources.ApplyResources(colorToolStripMenuItem, "colorToolStripMenuItem");
         colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-        colorToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-        colorToolStripMenuItem.Text = "Цвят";
         colorToolStripMenuItem.Click += colorToolStripMenuItem_Click;
         // 
         // fontToolStripMenuItem
         // 
+        resources.ApplyResources(fontToolStripMenuItem, "fontToolStripMenuItem");
         fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-        fontToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-        fontToolStripMenuItem.Text = "Шрифт";
         fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
         // 
         // languageToolStripMenuItem
         // 
-        languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
-        {
-            bulgarianLanguageToolStripMenuItem, englishLanguageToolStripMenuItem
-        });
+        resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
+        languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { bulgarianLanguageToolStripMenuItem, englishLanguageToolStripMenuItem });
         languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-        languageToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-        languageToolStripMenuItem.Text = "Език";
         // 
         // bulgarianLanguageToolStripMenuItem
         // 
+        resources.ApplyResources(bulgarianLanguageToolStripMenuItem, "bulgarianLanguageToolStripMenuItem");
         bulgarianLanguageToolStripMenuItem.Name = "bulgarianLanguageToolStripMenuItem";
-        bulgarianLanguageToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-        bulgarianLanguageToolStripMenuItem.Text = "Български";
         bulgarianLanguageToolStripMenuItem.Click += bulgarianLanguageToolStripMenuItem_Click;
         // 
         // englishLanguageToolStripMenuItem
         // 
+        resources.ApplyResources(englishLanguageToolStripMenuItem, "englishLanguageToolStripMenuItem");
         englishLanguageToolStripMenuItem.Name = "englishLanguageToolStripMenuItem";
-        englishLanguageToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-        englishLanguageToolStripMenuItem.Text = "English";
         englishLanguageToolStripMenuItem.Click += englishLanguageToolStripMenuItem_Click;
         // 
         // helpToolStripMenuItem
         // 
-        helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[]
-        {
-            aboutStudentToolStripMenuItem
-        });
+        resources.ApplyResources(helpToolStripMenuItem, "helpToolStripMenuItem");
+        helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutStudentToolStripMenuItem });
         helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-        helpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-        helpToolStripMenuItem.Text = "Помощ";
         // 
         // aboutStudentToolStripMenuItem
         // 
+        resources.ApplyResources(aboutStudentToolStripMenuItem, "aboutStudentToolStripMenuItem");
         aboutStudentToolStripMenuItem.Name = "aboutStudentToolStripMenuItem";
-        aboutStudentToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-        aboutStudentToolStripMenuItem.Text = "За студента";
         aboutStudentToolStripMenuItem.Click += aboutStudentToolStripMenuItem_Click;
         // 
         // timer1
@@ -165,67 +137,50 @@ partial class Form1
         // 
         // saveFileDialog1
         // 
-        saveFileDialog1.Filter = "PNG Image|*.png|JPEG Image|*.jpg";
+        resources.ApplyResources(saveFileDialog1, "saveFileDialog1");
         // 
         // canvasBox
         // 
-        canvasBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        canvasBox.Location = new System.Drawing.Point(0, 84);
+        resources.ApplyResources(canvasBox, "canvasBox");
         canvasBox.Name = "canvasBox";
-        canvasBox.Size = new System.Drawing.Size(800, 366);
-        canvasBox.TabIndex = 1;
         canvasBox.TabStop = false;
         canvasBox.Paint += canvasBox_Paint;
         // 
         // panel1
         // 
-        panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+        resources.ApplyResources(panel1, "panel1");
+        panel1.BackColor = SystemColors.ControlLight;
         panel1.Controls.Add(applyTextButton);
         panel1.Controls.Add(greetingTextBox);
         panel1.Controls.Add(greetingTextBoxLabel);
-        panel1.Dock = System.Windows.Forms.DockStyle.Top;
-        panel1.Location = new System.Drawing.Point(0, 24);
         panel1.Name = "panel1";
-        panel1.Size = new System.Drawing.Size(800, 60);
-        panel1.TabIndex = 2;
-        // 
-        // greetingTextBoxLabel
-        // 
-        greetingTextBoxLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-        greetingTextBoxLabel.Location = new System.Drawing.Point(12, 9);
-        greetingTextBoxLabel.Name = "greetingTextBoxLabel";
-        greetingTextBoxLabel.Size = new System.Drawing.Size(77, 19);
-        greetingTextBoxLabel.TabIndex = 2;
-        greetingTextBoxLabel.Text = "Пожелание";
-        // 
-        // greetingTextBox
-        // 
-        greetingTextBox.Location = new System.Drawing.Point(12, 31);
-        greetingTextBox.Name = "greetingTextBox";
-        greetingTextBox.Size = new System.Drawing.Size(650, 23);
-        greetingTextBox.TabIndex = 0;
         // 
         // applyTextButton
         // 
-        applyTextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right));
-        applyTextButton.Location = new System.Drawing.Point(701, 20);
+        resources.ApplyResources(applyTextButton, "applyTextButton");
         applyTextButton.Name = "applyTextButton";
-        applyTextButton.Size = new System.Drawing.Size(75, 23);
-        applyTextButton.TabIndex = 1;
-        applyTextButton.Text = "Приложи";
         applyTextButton.UseVisualStyleBackColor = true;
         applyTextButton.Click += applyTextButton_Click;
         // 
+        // greetingTextBox
+        // 
+        resources.ApplyResources(greetingTextBox, "greetingTextBox");
+        greetingTextBox.Name = "greetingTextBox";
+        // 
+        // greetingTextBoxLabel
+        // 
+        resources.ApplyResources(greetingTextBoxLabel, "greetingTextBoxLabel");
+        greetingTextBoxLabel.Name = "greetingTextBoxLabel";
+        // 
         // Form1
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
+        resources.ApplyResources(this, "$this");
+        AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(canvasBox);
         Controls.Add(panel1);
         Controls.Add(menuStrip1);
         MainMenuStrip = menuStrip1;
-        Text = "Програма за създаване на картички";
+        Name = "Form1";
         menuStrip1.ResumeLayout(false);
         menuStrip1.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)canvasBox).EndInit();
