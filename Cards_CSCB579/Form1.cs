@@ -64,7 +64,10 @@ public partial class Form1 : Form
     }
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        if (MessageBox.Show("Сигурни ли сте, че искате да излезете?", "Изход", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        {
+            Application.Exit();
+        }
     }
     private void colorToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -108,11 +111,15 @@ public partial class Form1 : Form
 
     private void applyTextButton_Click(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(this.greetingTextBox.Text))
-            return;
-
-        this._greetingText = this.greetingTextBox.Text;
-        this.canvasBox.Invalidate();
+        if (!string.IsNullOrWhiteSpace(greetingTextBox.Text))
+        {
+            this._greetingText = greetingTextBox.Text;
+            canvasBox.Invalidate();
+        }
+        else
+        {
+            MessageBox.Show("Моля, въведете текст!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 
     private void ChangeLanguage(string lang)
