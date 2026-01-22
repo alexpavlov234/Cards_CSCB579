@@ -185,6 +185,9 @@
   <data name="saveFileDialog1.Filter" xml:space="preserve">
     <value>PNG Image|*.png|JPEG Image|*.jpg</value>
   </data>
+  <data name="saveFileDialog1.Title" xml:space="preserve">
+    <value>Запазване на картичката като изображение</value>
+  </data>
   <data name="applyTextButton.Text" xml:space="preserve">
     <value>Приложи</value>
   </data>

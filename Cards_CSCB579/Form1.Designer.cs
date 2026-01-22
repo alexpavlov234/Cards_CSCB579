@@ -67,7 +67,6 @@ partial class Form1
         resources.ApplyResources(fileToolStripMenuItem, "fileToolStripMenuItem");
         fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveAsToolStripMenuItem, exitToolStripMenuItem });
         fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-        fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
         // 
         // saveAsToolStripMenuItem
         // 

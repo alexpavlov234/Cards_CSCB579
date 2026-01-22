@@ -66,13 +66,26 @@ public partial class Form1 : Form
         }
     }
 
-    private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
     private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        timer1.Stop();
+        saveFileDialog1.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
 
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+        saveFileDialog1.Title = resources.GetString("saveFileDialog1.Title") ?? "Save the card as an image";
+        saveFileDialog1.FileName = "GreetingCard";
+
+        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        {
+            using (Bitmap bmp = new Bitmap(canvasBox.Width, canvasBox.Height))
+            {
+                canvasBox.DrawToBitmap(bmp, canvasBox.ClientRectangle);
+
+                bmp.Save(saveFileDialog1.FileName);
+            }
+        }
+
+        timer1.Start();
     }
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
