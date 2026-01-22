@@ -10,15 +10,27 @@ public partial class Form1 : Form
 
     private Font _greetingTextFont = new Font("Comic Sans MS", 24, FontStyle.Bold);
     private Color _greetingTextColor = Color.DarkRed;
+    private float _gradientAngle = 0f;
 
+    private int _ball1Size = 100;
+    private int _ball2Size = 120;
+
+    private PointF _ball1Position = new PointF(50, 50);
+    private PointF _ball1Velocity = new PointF(3, 3);
+
+    private PointF _ball2Position = new PointF(200, 150);
+    private PointF _ball2Velocity = new PointF(-4, 2);
     public Form1()
     {
         InitializeComponent();
+
+        timer1.Start();
     }
 
     private void canvasBox_Paint(object sender, PaintEventArgs e)
     {
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+        e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
         Rectangle rect = this.canvasBox.ClientRectangle;
 
@@ -30,8 +42,8 @@ public partial class Form1 : Form
         using (Brush ellipseBrush1 = new SolidBrush(Color.FromArgb(100, Color.DeepPink)))
         using (Brush ellipseBrush2 = new SolidBrush(Color.FromArgb(100, Color.Orange)))
         {
-            e.Graphics.FillEllipse(ellipseBrush1, -50, -50, 150, 150);
-            e.Graphics.FillEllipse(ellipseBrush2, rect.Width - 100, rect.Height - 100, 150, 150);
+            e.Graphics.FillEllipse(ellipseBrush1, _ball1Position.X, _ball1Position.Y, _ball1Size, _ball1Size); 
+            e.Graphics.FillEllipse(ellipseBrush2, _ball2Position.X, _ball2Position.Y, _ball2Size, _ball2Size);
         }
 
         using (Pen borderPen = new Pen(Color.Gold, 10))
@@ -106,7 +118,37 @@ public partial class Form1 : Form
     }
     private void timer1_Tick(object sender, EventArgs e)
     {
+        this._gradientAngle += 1.5f;
+        if (this._gradientAngle >= 360f) this._gradientAngle = 0f;
 
+        _ball1Position.X += _ball1Velocity.X;
+        _ball1Position.Y += _ball1Velocity.Y;
+
+        if (_ball1Position.X < 0 || _ball1Position.X + _ball1Size > canvasBox.Width)
+        {
+            _ball1Velocity.X = -_ball1Velocity.X;
+        }
+
+        if (_ball1Position.Y < 0 || _ball1Position.Y + _ball1Size > canvasBox.Height)
+        {
+            _ball1Velocity.Y = -_ball1Velocity.Y;
+        }
+
+        _ball2Position.X += _ball2Velocity.X;
+        _ball2Position.Y += _ball2Velocity.Y;
+
+        if (_ball2Position.X < 0 || _ball2Position.X + _ball2Size > canvasBox.Width)
+        {
+            _ball2Velocity.X = -_ball2Velocity.X;
+        }
+
+        if (_ball2Position.Y < 0 || _ball2Position.Y + _ball2Size > canvasBox.Height)
+        {
+            _ball2Velocity.Y = -_ball2Velocity.Y;
+        }
+            
+
+        this.canvasBox.Invalidate();
     }
 
     private void applyTextButton_Click(object sender, EventArgs e)
