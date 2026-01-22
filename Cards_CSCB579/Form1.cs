@@ -95,7 +95,11 @@ public partial class Form1 : Form
     }
     private void aboutStudentToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        string info = "Курс: CSCB579 Програмиране на приложения с Microsoft Visual C# .NET\n\n" +
+                      "Студент: Александър Александров Павлов\n" +
+                      "Фак. номер: F112657\n\n" +
+                      "Проект: Програма за създаване на картички";
+        MessageBox.Show(info, "За студента", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
     private void timer1_Tick(object sender, EventArgs e)
     {
